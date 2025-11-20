@@ -36,14 +36,9 @@ def convert_docx_to_html(file_bytes: bytes) -> str:
         # result.messages contains warnings if any
     return html
 
-
 @app.get("/")
-async def root():
-    from app.config import settings
-    print("NOTION_API_KEY: ", settings.NOTION_API_KEY)
-
-    return {"message": "Welcome to the Blog Agent API"}
-
+def read_root():
+    return {"message": "Welcome to RILA's Notion Blog Agent API!"}
 
 @app.post("/read-docx/")
 async def read_docx(file: UploadFile = File(...)):
