@@ -18,5 +18,5 @@ pip3 install -r requirements.txt
 ## Run the app
 
 ```shell
-python -m uvicorn app.main:app --reload
+python -m uvicorn app.app:app --reload
 ```
