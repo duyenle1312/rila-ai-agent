@@ -23,7 +23,7 @@ def send_email_notification(blog_title, blog_url):
         sib_api_v3_sdk.ApiClient(configuration))
 
     # Prepare the email content
-    subject = f"Your RILA's AI Agent just created a new blog!"
+    subject = f"New Blog Created!"
     html_content = f"""
     <html>
     <body style="font-family: Arial, sans-serif; background-color: #ffffff; color: #000000; margin: 0; padding: 0;">
@@ -32,13 +32,13 @@ def send_email_notification(blog_title, blog_url):
         <!-- Notification Header -->
         <h2 style="color: #D32F2F; text-align: center;">🎉 New Blog Created!</h2>
         <p style="text-align: center; font-size: 16px; color: #333333;">
-            Notion Blog Agent has successfully generated a new blog for you.
+            RILA AI Agent has successfully uploaded a new blog for you.
         </p>
         
         <!-- Blog Title -->
         <div style="margin: 20px 0; padding: 15px; background-color: #f8f8f8; border-left: 5px solid #D32F2F;">
-            <p style="margin: 0; font-size: 14px; color: #555555;">Blog Title:</p>
-            <h3 style="margin: 5px 0 0 0; color: #000000;">{blog_title}</h3>
+            <p style="margin: 0; font-size: 16px; color: #555555;">Blog Title:</p><br/>
+            <h4 style="margin: 5px 0 0 0; color: #000000;">{blog_title}</h4>
         </div>
         
         <!-- Blog URL -->
@@ -51,7 +51,7 @@ def send_email_notification(blog_title, blog_url):
         <p style="margin-top: 30px; font-size: 14px; color: #555555;">
             Thanks and have a nice day!<br/><br/>
             Best regards,<br/>
-            <strong>Your helpful RILA AI Agent</strong>
+            <strong>Your helpful AI Agent</strong>
         </p>
 
         <!-- Note about API -->
