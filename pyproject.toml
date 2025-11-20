@@ -4,8 +4,7 @@ version = "0.1.0"
 description = "RILA AI Agent to upload blog from docx to Notion"
 
 [project.scripts]
-# This defines the script entry point for Vercel
 app = "app.main:app"
 
 [tool.vercel]
-# Optional: specify which framework or build sett
+framework = "python"
