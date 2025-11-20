@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+python-multipart
+notion-client
+pydantic-settings
+requests
+python-docx
+mammoth
+beautifulsoup4
+google-genai
+sib-api-v3-sdk
