@@ -37,26 +37,25 @@ def send_email_notification(blog_title, blog_url):
         
         <!-- Blog Title -->
         <div style="margin: 20px 0; padding: 15px; background-color: #f8f8f8; border-left: 5px solid #D32F2F;">
-            <p style="margin: 0; color: #000000;">Title:</p>
             <p style="margin: 5px 0 0 0; color: #000000;"><strong>{blog_title}</strong></p>
         </div>
         
         <!-- Blog URL -->
         <p style="font-size: 14px; color: #000000;">
-            Please review the blog and click publish on Notion using this URL: <br/> <br/>
+            Please review the blog and click publish on Notion: <br/> <br/>
             <a href="{blog_url}" style="color: #D32F2F; text-decoration: none;">{blog_url}</a>
         </p>
         
         <!-- Footer -->
         <p style="margin-top: 30px; font-size: 14px; color: #000000;">
-            Thanks and have a nice day!<br/><br/>
+            Have a nice day!<br/><br/>
             Best regards,<br/>
             <strong>Your helpful AI Agent</strong>
         </p>
 
         <!-- Note about API -->
         <p style="margin-top: 30px; font-size: 12px; color: #999999; text-align: center;">
-            This AI Agent uses Google Gemini to summarize content.
+            This AI Agent uses Google Gemini to summarize blog content.
         </p>
         </div>
     </body>
