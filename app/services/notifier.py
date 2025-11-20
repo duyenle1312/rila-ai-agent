@@ -32,31 +32,31 @@ def send_email_notification(blog_title, blog_url):
         <!-- Notification Header -->
         <h2 style="color: #D32F2F; text-align: center;">🎉 New Blog Created!</h2>
         <p style="text-align: center; font-size: 16px; color: #333333;">
-            RILA AI Agent has successfully uploaded a new blog for you.
+            RILA's AI Agent has successfully uploaded a new blog for you.
         </p>
         
         <!-- Blog Title -->
         <div style="margin: 20px 0; padding: 15px; background-color: #f8f8f8; border-left: 5px solid #D32F2F;">
-            <p style="margin: 0; font-size: 16px; color: #555555;">Blog Title:</p>
-            <h4 style="margin: 5px 0 0 0; color: #000000;">{blog_title}</h4>
+            <p style="margin: 0; color: #000000;">Title:</p>
+            <p style="margin: 5px 0 0 0; color: #000000;"><strong>{blog_title}</strong></p>
         </div>
         
         <!-- Blog URL -->
-        <p style="font-size: 14px; color: #333333;">
+        <p style="font-size: 14px; color: #000000;">
             Please review the blog and click publish on Notion using this URL: <br/> <br/>
             <a href="{blog_url}" style="color: #D32F2F; text-decoration: none;">{blog_url}</a>
         </p>
         
         <!-- Footer -->
-        <p style="margin-top: 30px; font-size: 14px; color: #555555;">
+        <p style="margin-top: 30px; font-size: 14px; color: #000000;">
             Thanks and have a nice day!<br/><br/>
             Best regards,<br/>
             <strong>Your helpful AI Agent</strong>
         </p>
 
         <!-- Note about API -->
-        <p style="margin-top: 20px; font-size: 12px; color: #999999; text-align: center;">
-            This AI agent uses Google Gemini to summarize blog content.
+        <p style="margin-top: 30px; font-size: 12px; color: #999999; text-align: center;">
+            This AI Agent uses Google Gemini to summarize content.
         </p>
         </div>
     </body>
