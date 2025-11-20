@@ -37,7 +37,7 @@ def send_email_notification(blog_title, blog_url):
         
         <!-- Blog Title -->
         <div style="margin: 20px 0; padding: 15px; background-color: #f8f8f8; border-left: 5px solid #D32F2F;">
-            <p style="margin: 5px 0 0 0; color: #000000;"><strong>{blog_title}</strong></p>
+            <h3 style="margin: 5px 0 0 0; color: #000000;"><strong>{blog_title}</strong></h3>
         </div>
         
         <!-- Blog URL -->
