@@ -1,40 +1,25 @@
 from fastapi import FastAPI, File, UploadFile, BackgroundTasks
 import mammoth
 from docx import Document
+from io import BytesIO
 from app.services.llm import summarize_text
 from app.services.notifier import send_email_notification
 from app.services.notion import create_notion_page
 
 app = FastAPI()
 
-
 def extract_docx_title(file_bytes: bytes) -> str:
-    """
-    Extract title from DOCX metadata or fallback to first paragraph.
-    """
-    with open("temp.docx", "wb") as f:
-        f.write(file_bytes)
-
-    doc = Document("temp.docx")
+    docx_file = BytesIO(file_bytes)
+    doc = Document(docx_file)
     title = doc.core_properties.title or ""
     if not title and doc.paragraphs:
-        # first paragraph as fallback
         title = doc.paragraphs[0].text.strip()[:200]
     return title
 
-
 def convert_docx_to_html(file_bytes: bytes) -> str:
-    """
-    Convert DOCX content to HTML using Mammoth (preserves headings, bold, italic, lists)
-    """
-    with open("temp.docx", "wb") as f:
-        f.write(file_bytes)
-
-    with open("temp.docx", "rb") as docx_file:
-        result = mammoth.convert_to_html(docx_file)
-        html = result.value  # Extracted HTML
-        # result.messages contains warnings if any
-    return html
+    docx_file = BytesIO(file_bytes)
+    result = mammoth.convert_to_html(docx_file)
+    return result.value
 
 @app.get("/")
 def read_root():

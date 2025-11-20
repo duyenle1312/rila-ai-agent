@@ -23,11 +23,11 @@ def send_email_notification(blog_title, blog_url):
         sib_api_v3_sdk.ApiClient(configuration))
 
     # Prepare the email content
-    subject = f"New Blog Created!"
+    subject = f"New Blog Created: {blog_title}"
     html_content = f"""
     <html>
     <body style="font-family: Arial, sans-serif; background-color: #ffffff; color: #000000; margin: 0; padding: 0;">
-        <div style="max-width: 600px; margin: 20px auto; padding: 20px;">
+        <div style="max-width: 600px; margin: 10px auto; padding: 20px;">
         
         <!-- Notification Header -->
         <h2 style="color: #D32F2F; text-align: center;">🎉 New Blog Created!</h2>
@@ -37,7 +37,7 @@ def send_email_notification(blog_title, blog_url):
         
         <!-- Blog Title -->
         <div style="margin: 20px 0; padding: 15px; background-color: #f8f8f8; border-left: 5px solid #D32F2F;">
-            <p style="margin: 0; font-size: 16px; color: #555555;">Blog Title:</p><br/>
+            <p style="margin: 0; font-size: 16px; color: #555555;">Blog Title:</p>
             <h4 style="margin: 5px 0 0 0; color: #000000;">{blog_title}</h4>
         </div>
         
