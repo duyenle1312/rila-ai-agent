@@ -1,13 +1,15 @@
-# README File
+# RILA AI Agent
 
-## Install venv
+![Code Summary](workflow.jpeg)
+
+## Install virtual environment
 
 ```shell
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-Check ```which python```
+Use ```which python``` to see if you are running the python version inside the venv folder.
 
 ## Install requirements
 
