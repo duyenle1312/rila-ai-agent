@@ -5,11 +5,8 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Copy requirements file if you have one (optional)
-# COPY requirements.txt .
-# RUN pip install --no-cache-dir -r requirements.txt
-
-# If you don't have a requirements.txt, install FastAPI and Uvicorn directly
-RUN pip install --no-cache-dir fastapi uvicorn
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the app folder into the container
 COPY ./app /app/app
