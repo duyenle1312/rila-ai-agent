@@ -1,25 +1,21 @@
-# Builder stage
-FROM python:3.11.5 AS builder
+# Use official Python image as base
+FROM python:3.11-slim
 
-ENV PYTHONUNBUFFERED=1 \
-    PYTHONDONTWRITEBYTECODE=1
-
+# Set working directory
 WORKDIR /app
 
-# Create virtual environment
-RUN python -m venv .venv
+# Copy requirements file if you have one (optional)
+# COPY requirements.txt .
+# RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy requirements and install
-COPY requirements.txt ./
-RUN .venv/bin/pip install --no-cache-dir -r requirements.txt
+# If you don't have a requirements.txt, install FastAPI and Uvicorn directly
+RUN pip install --no-cache-dir fastapi uvicorn
 
-# Final image
-FROM python:3.11.5-slim
-WORKDIR /app
+# Copy the app folder into the container
+COPY ./app /app/app
 
-# Copy virtual environment from builder
-COPY --from=builder /app/.venv .venv/
-COPY . .
-
+# Expose port
 EXPOSE 8000
-CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "8000"]
+
+# Command to run the app with Uvicorn
+CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
