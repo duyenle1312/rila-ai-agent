@@ -13,15 +13,21 @@ from app.services.notion import create_notion_page
 
 app = FastAPI()
 
+origins = [
+    "https://rila-blog-agent.vercel.app",   # production frontend
+    "http://localhost:5173",                # if testing locally
+    "http://localhost:3000",                # if using CRA dev server
+]
 
 # Allow your React dev server (localhost:5173 or 3000)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # --------------------------------------------------------
 #  WebSocket connection manager
@@ -194,4 +200,4 @@ def read_root():
 
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("app.app:app", host="0.0.0.0", port=8000, reload=True)
