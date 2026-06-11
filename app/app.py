@@ -1,3 +1,4 @@
+from app.config import settings
 from fastapi import FastAPI, File, UploadFile, WebSocket, WebSocketDisconnect, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 import uuid
@@ -145,7 +146,7 @@ async def run_processing_pipeline(job_id: str, title: str, html_content: str):
     await manager.send_step(job_id, "Step 4: Sending email", "Sending email confirmation...")
     send_email_notification(title, notion_response.get("url", ""))
 
-    await manager.send_step(job_id, "Step 5: Email sent to duyen@rilaglobal.com", "Upload blog successfully!")
+    await manager.send_step(job_id, f"Step 5: Email sent to {settings.EMAIL_TO}", "Upload blog successfully!")
 
     # Properly close WS
     ws = manager.active_jobs.get(job_id)
