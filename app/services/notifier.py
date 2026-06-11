@@ -64,7 +64,11 @@ def send_email_notification(blog_title, blog_url):
 
     sender = {"name": "RILA AI Agent", "email": settings.BREVO_SENDER_EMAIL}
 
-    recipients = [settings.EMAIL_TO]
+    recipients = [
+        email.strip()
+        for email in settings.EMAIL_TO.split(",")
+        if email.strip()
+    ]
 
     to = [{"email": email} for email in recipients]
 
